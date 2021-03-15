@@ -10,7 +10,10 @@ TorrentMafya Addon provides movie/series torrent streams from torrentmafya.org u
 ## How to install remotely
 ![addlink](https://user-images.githubusercontent.com/1777923/43146711-65a33ccc-8f6a-11e8-978e-4c69640e63e3.png)
 
-Add `https://5a0d1888fa64-torrentmafya-stremio-addon.baby-beamup.club/` as an Add-on URL in Stremio.
+Add `https://5a0d1888fa64-torrentmafya-stremio-addon.baby-beamup.club/manifest.json` as an Add-on URL in Stremio.
+
+Or simply just click on this [link](https://5a0d1888fa64-torrentmafya-stremio-addon.baby-beamup.club/ "link") and then click install.
+
 
 
 ## About this addon
