@@ -5,7 +5,7 @@ const pageParser = require('./lib/scraper.js')
 // Docs: https://github.com/Stremio/stremio-addon-sdk/blob/master/docs/api/responses/manifest.md
 const manifest = {
 	"id": "community.TorrentMafyaOrg",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"catalogs": [],
 	"resources": [
 		"stream"
@@ -23,19 +23,18 @@ const manifest = {
 }
 const builder = new addonBuilder(manifest)
 
-const numberOfDays = (number) => number * (24 * 3600);
 
 builder.defineStreamHandler( async ({type, id}) => {
 	console.log("request for streams: "+type+" "+id)
 	// Docs: https://github.com/Stremio/stremio-addon-sdk/blob/master/docs/api/requests/defineStreamHandler.md
 	
-		const seriesId =  id.split(":")[0]
-		const seriesSeason = id.split(":")[1]
-		const seriesEpisode = id.split(":")[2]
+		let seriesId =  id.split(":")[0]
+		let seriesSeason = id.split(":")[1]
+		let seriesEpisode = id.split(":")[2]
 		
 		const stream = await pageParser.pageParser(type, seriesId, seriesSeason, seriesEpisode)
 
-		return Promise.resolve({ streams: stream, cacheMaxAge: numberOfDays(2), staleRevalidate: numberOfDays(1), staleError: numberOfDays(5)  })
+		return Promise.resolve({ streams: stream })
 })
 
 module.exports = builder.getInterface()
